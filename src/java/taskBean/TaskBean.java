@@ -23,21 +23,61 @@ import taskEJB.TaskControllerLocal;
 @SessionScoped
 public class TaskBean implements Serializable {
 
+    private int priority;
+    private String title;
+    private String optionalNote;
+    private boolean completionFlag;
+
+    
+    
 
 @EJB TaskControllerLocal tasks;
     /** Creates a new instance of VisitorBean */
     public TaskBean() {
     }
 
-   
+   public int getPriority() {
+        return priority;
+    }
 
-    public List<Task> getComments() {
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getOptionalNote() {
+        return optionalNote;
+    }
+
+    public void setOptionalNote(String optionalNote) {
+        this.optionalNote = optionalNote;
+    }
+
+    public boolean isCompletionFlag() {
+        return completionFlag;
+    }
+
+    public void setCompletionFlag(boolean completionFlag) {
+        this.completionFlag = completionFlag;
+    }
+
+    public List<Task> getTasks() {
         return tasks.list();
     }
 
     public String submit() {
         Task t = new Task();
       
+        t.setPriority(getPriority());
+        t.setTitle(getTitle());
+        t.setOptionalNote(getOptionalNote());
         t.setDueDate(new Date());
         tasks.add(t);
         return "index.xhtml";
