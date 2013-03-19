@@ -11,10 +11,10 @@
         <table>
             <tr>
                 <td>
-                    Name:
+                    New Task Title:
                 </td>
                 <td>
-                    <h:inputText value="#{visitor.name}"/>
+                    <h:inputText value="#{task.name}"/>
                 </td>
             </tr>
             <tr>
@@ -22,7 +22,22 @@
                     Comment:
                 </td>
                 <td>
-                    <h:inputTextarea value="#{visitor.comment}"/>
+                    <h:inputTextarea value="#{task.optionalNote}"/>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Priority:
+                </td>
+                <td>
+                    <h:selectOneMenu value="#{task.prioties}">
+                        <f:selectItem id="item1" itemLabel="News" itemValue="1" />
+                        <f:selectItem id="item2" itemLabel="Sports" itemValue="2" />
+                        <f:selectItem id="item3" itemLabel="Music" itemValue="3" />
+                        <f:selectItem id="item4" itemLabel="Java" itemValue="4" />
+                        <f:selectItem id="item5" itemLabel="Web" itemValue="5" />
+                    </h:selectOneMenu>
                 </td>
 
             </tr>
