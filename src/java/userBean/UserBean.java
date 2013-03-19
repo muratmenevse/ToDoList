@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package taskBean;
+package userBean;
 
 
 import java.io.Serializable;
@@ -12,39 +12,38 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import taskEJB.Task;
-import taskEJB.TaskControllerLocal;
+import userEJB.User;
+import userEJB.UserControllerLocal;
 
 /**
  *
  * @author muratmenevse
  */
-@Named(value="task")
+@Named(value="user")
 @SessionScoped
-public class TaskBean implements Serializable {
+public class UserBean implements Serializable {
 
 
-@EJB TaskControllerLocal tasks;
+@EJB UserControllerLocal users;
     /** Creates a new instance of VisitorBean */
-    public TaskBean() {
+    public UserBean() {
     }
 
    
 
-    public List<Task> getComments() {
-        return tasks.list();
+    public List<User> getComments() {
+        return users.list();
     }
 
     public String submit() {
-        Task t = new Task();
+        User u = new User();
       
-        t.setDueDate(new Date());
-        tasks.add(t);
+        users.add(u);
         return "index.xhtml";
     }
 
-    public String delete(Task c) {
-        tasks.delete(c);
+    public String delete(User u) {
+        users.delete(u);
         return "index.xhtml";
     }
 
