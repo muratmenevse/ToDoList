@@ -2,9 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package taskBean;
-
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,8 +27,6 @@ public class TaskBean implements Serializable {
     private boolean completionFlag;
 
     
-    
-
 @EJB TaskControllerLocal tasks;
     /** Creates a new instance of VisitorBean */
     public TaskBean() {
